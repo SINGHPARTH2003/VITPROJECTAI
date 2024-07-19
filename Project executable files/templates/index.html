@@ -1,0 +1,158 @@
+%%writefile templates/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <style>
+    /* Reset and basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style-type: none;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+
+    .hero {
+      background-image: url('path/to/hero-image.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .features {
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .features .feature {
+      margin-bottom: 30px;
+    }
+
+    .interactive {
+      background-color: #ddd;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    .interactive .interactive-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #555;
+    }
+
+    .ai-link {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Introduction</a></li>
+        <li><a href="predict.html">Predictions</a></li>
+        <li><a href="output.html">Output</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Our Project</h1>
+      <p>Explore the fascinating world of [Your Project Name]. Learn, predict, and discover insights.</p>
+      <a href="#features" class="btn">Explore More</a>
+    </div>
+  </section>
+
+  <section id="features" class="features">
+    <div class="feature">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Predictive Analytics</li>
+        <li>Data Visualization</li>
+        <li>User-friendly Interface</li>
+      </ul>
+    </div>
+    <div class="feature">
+      <h2>Why Choose Us?</h2>
+      <p>Our project stands out due to its innovative approach and dedication to user experience.</p>
+    </div>
+  </section>
+
+  <section class="interactive">
+    <h2>Interactive Element</h2>
+    <div class="interactive-content">
+      <p>Click the button below to experience a live demo of our prediction model:</p>
+      <button id="demo-btn" class="btn">Launch Demo</button>
+      <div class="ai-link">
+        <a href="https://colab.research.google.com/drive/15_htUc87hO8YcoriGEVp3E4EmqVmSdY9?usp=sharing#scrollTo=ae3yx78i_VRV" target="_blank" class="btn">View TensorFlow AI Project</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Your Project. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Example interactive functionality
+    document.getElementById('demo-btn').addEventListener('click', function() {
+      alert('Launching demo...');
+      // Add your demo launch code here
+    });
+  </script>
+</body>
+</html>

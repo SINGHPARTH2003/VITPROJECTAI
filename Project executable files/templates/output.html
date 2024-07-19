@@ -1,0 +1,48 @@
+%%writefile templates/output.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Output Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Additional styles specific to output.html */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        #results {
+            background-color: #fff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #results h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Output Page</h1>
+    <div id="results">
+        <h2>Results:</h2>
+        <p id="prediction-results"></p>
+    </div>
+    <a href="/" class="btn">Back to Home</a>
+
+    <!-- Include JavaScript inline for simplicity -->
+    <script>
+        // Function to display results on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var prediction = "This is a sample prediction"; // Replace with actual prediction logic
+            document.getElementById('prediction-results').innerHTML = prediction;
+        });
+    </script>
+</body>
+</html>

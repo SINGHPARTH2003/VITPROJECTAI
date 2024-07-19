@@ -1,0 +1,104 @@
+%%writefile templates/predict.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Using ML Model</title>
+    <style>
+        /* Additional styles specific to predict.html */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+
+        #preview-image {
+            max-width: 100%;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Using ML Model</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" id="file-input" name="file" accept="image/*" required>
+            </div>
+            <button type="button" onclick="uploadFile()" class="btn">Upload & Predict</button>
+        </form>
+        <div id="prediction-results"></div>
+        <img id="preview-image" src="#" alt="Preview Image">
+    </div>
+
+    <!-- Include JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Function to handle file upload and prediction
+        function uploadFile() {
+            var fileInput = document.getElementById('file-input');
+            var file = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            $.ajax({
+                type: 'POST',
+                url: '/predict_photo',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    document.getElementById('prediction-results').innerHTML = '<h2>Prediction:</h2><p>' + response.prediction + '</p>';
+                    var previewImage = document.getElementById('preview-image');
+                    previewImage.src = URL.createObjectURL(file);
+                    previewImage.style.display = 'block';
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                    alert('Error occurred while predicting. Please try again.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
